@@ -9,46 +9,225 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
       font-family: 'Inter', sans-serif;
-      background: #f5f7fb;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    section {
+      padding: 80px 0;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
       color: #1e293b;
     }
-    section { padding: 100px 20px; }
-    .container { max-width: 1150px; margin: auto; }
-    h1 { font-size: 48px; }
-    h2 { font-size: 34px; margin-bottom: 20px; }
-    p { line-height: 1.9; color: #334155; }
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #1e293b;
+    }
+    p {
+      color: #475569;
+      margin-bottom: 1rem;
+    }
     .hero {
-      background: linear-gradient(135deg,#4f46e5,#6366f1);
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
       color: white;
-      padding: 120px 20px;
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.1)"/></svg>') no-repeat center;
+      background-size: cover;
+      opacity: 0.1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    .hero-image {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      background: #e2e8f0;
+      border-radius: 12px;
+      margin: 2rem auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-weight: 500;
+    }
+    .workflow {
+      background: white;
+    }
+    .workflow-note {
+      text-align: center;
+      font-style: italic;
+      color: #6366f1;
+      font-weight: 500;
+      margin-top: 2rem;
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-      gap: 40px;
-      margin-top: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
     }
     .card {
       background: white;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 20px 50px rgba(0,0,0,.08);
-      transition: transform .3s ease;
-    }
-    .card:hover { transform: translateY(-10px); }
-    video, iframe {
-      width: 100%;
       border-radius: 16px;
-      margin-top: 20px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #e2e8f0;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+    }
+    .tool-section {
+      background: #f8fafc;
+    }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .tool-video {
+      width: 100%;
+      height: 300px;
+      background: #e2e8f0;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-weight: 500;
+    }
+    .tool-content h3 {
+      color: #6366f1;
+      margin-bottom: 1rem;
+    }
+    .tool-caption {
+      background: #f1f5f9;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .tool-image {
+      width: 100%;
+      height: 200px;
+      background: #e2e8f0;
+      border-radius: 8px;
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-weight: 500;
+    }
+    .ethics {
+      background: white;
+      text-align: center;
+    }
+    .contact {
+      background: #1e293b;
+      color: white;
+      text-align: center;
+    }
+    .contact h2 {
+      color: white;
+    }
+    .contact-info {
+      margin-top: 2rem;
+    }
+    .contact-item {
+      margin-bottom: 1rem;
+    }
+    .contact-item a {
+      color: #6366f1;
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      text-decoration: underline;
     }
     footer {
       background: #0f172a;
-      color: #c7d2fe;
+      color: #94a3b8;
       text-align: center;
-      padding: 40px;
+      padding: 2rem 0;
+    }
+    @media (max-width: 768px) {
+      .tool-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 60px 0;
+      }
+    }
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Scroll reveal */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -56,94 +235,213 @@
 <body>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <h1>AI in Talent Acquisition</h1>
-    <p>
-      A practical showcase of how I use AI tools to improve recruitment efficiency,
-      candidate experience, and decision-making in modern HR environments.
-    </p>
+<section class="hero fade-in">
+  <div class="container hero-content">
+    <h1>AI in Talent Acquisition – by Nashra Baig</h1>
+    <p class="hero-subtitle">Practical AI use in recruitment (India + Global)</p>
+    <div class="hero-image">Hero Image Placeholder</div>
   </div>
 </section>
 
-<!-- AI WORKFLOW -->
-<section>
+<!-- AI RECRUITMENT WORKFLOW -->
+<section class="workflow scroll-reveal">
   <div class="container">
-    <h2>AI-Driven Recruitment Workflow</h2>
-    <p>
-      From job requirement to hiring decision, AI tools assist recruiters at every stage.
-    </p>
+    <h2>AI Recruitment Workflow</h2>
+    <p>Streamlining the hiring process with AI assistance at every step.</p>
     <div class="grid">
-      <div class="card">Job Requirement Analysis</div>
-      <div class="card">AI Job Description Creation</div>
-      <div class="card">AI Resume Screening</div>
-      <div class="card">Interview Support & Notes</div>
-      <div class="card">Final Human Decision</div>
+      <div class="card">
+        <h3>Job Requirement</h3>
+        <p>Analyze and define job requirements with AI insights.</p>
+      </div>
+      <div class="card">
+        <h3>AI Job Description</h3>
+        <p>Generate compelling job descriptions using AI tools.</p>
+      </div>
+      <div class="card">
+        <h3>AI Resume Screening</h3>
+        <p>Automate initial resume screening with AI-powered matching.</p>
+      </div>
+      <div class="card">
+        <h3>Interview Support</h3>
+        <p>Use AI for interview preparation and note-taking.</p>
+      </div>
+      <div class="card">
+        <h3>Human Decision</h3>
+        <p>Final hiring decisions made by experienced recruiters.</p>
+      </div>
     </div>
+    <p class="workflow-note">AI assists, humans decide.</p>
   </div>
 </section>
 
 <!-- CHATGPT -->
-<section>
+<section class="tool-section scroll-reveal">
   <div class="container">
-    <h2>ChatGPT in Recruitment</h2>
-    <p>
-      Used for drafting job descriptions, screening questions, interview frameworks,
-      and professional candidate communication.
-    </p>
-    <!-- Replace with your video -->
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID"></iframe>
+    <div class="tool-grid">
+      <div class="tool-video">Video Placeholder - ChatGPT Demo</div>
+      <div class="tool-content">
+        <h2>ChatGPT</h2>
+        <p>Leveraging ChatGPT for drafting job descriptions, creating screening questions, and generating interview frameworks to enhance recruitment efficiency.</p>
+        <div class="tool-caption">Video Script: "Using ChatGPT to generate a job description for a software engineer role, including key responsibilities and requirements."</div>
+        <!-- AI image prompt: "A modern HR recruiter working with an AI assistant on a laptop, job descriptions and interview questions visible, global hiring environment, professional HR-tech illustration." -->
+        <div class="tool-image">AI Image Placeholder</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- PERPLEXITY -->
-<section>
+<!-- PERPLEXITY AI -->
+<section class="tool-section scroll-reveal">
   <div class="container">
-    <h2>Perplexity AI for Market & Role Research</h2>
-    <p>
-      Helps recruiters understand talent trends, salary benchmarks, and industry demand.
-    </p>
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID"></iframe>
+    <div class="tool-grid">
+      <div class="tool-video">Video Placeholder - Perplexity AI Demo</div>
+      <div class="tool-content">
+        <h2>Perplexity AI</h2>
+        <p>Utilizing Perplexity AI for researching talent trends, salary benchmarks, and industry insights to inform strategic hiring decisions.</p>
+        <div class="tool-caption">Video Script: "Researching current salary trends for data scientists in India using Perplexity AI."</div>
+        <!-- AI image prompt: "HR professional analyzing global talent trends on a digital dashboard, charts, salary graphs, AI-powered analytics interface." -->
+        <div class="tool-image">AI Image Placeholder</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- NOTION AI -->
-<section>
+<section class="tool-section scroll-reveal">
   <div class="container">
-    <h2>Notion AI for Hiring Pipelines</h2>
-    <p>
-      Organizing candidates, tracking stages, interview feedback, and HR documentation.
-    </p>
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID"></iframe>
+    <div class="tool-grid">
+      <div class="tool-video">Video Placeholder - Notion AI Demo</div>
+      <div class="tool-content">
+        <h2>Notion AI</h2>
+        <p>Building organized recruitment pipelines with Notion AI, managing candidate tracking, interview feedback, and HR documentation seamlessly.</p>
+        <div class="tool-caption">Video Script: "Creating a candidate tracking database in Notion AI with automated status updates."</div>
+        <!-- AI image prompt: "Digital recruitment pipeline with candidate cards moving through stages, clean HR SaaS dashboard." -->
+        <div class="tool-image">AI Image Placeholder</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- EMERGENT -->
-<section>
+<!-- OTTER.AI -->
+<section class="tool-section scroll-reveal">
   <div class="container">
-    <h2>Emergent AI – AI Powered HR Software Builder</h2>
-    <p>
-      Emergent can be used as an AI-powered web developer to build HR tools such as:
-      resume parsers, JD generators, candidate trackers, and internal HR dashboards.
-    </p>
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID"></iframe>
+    <div class="tool-grid">
+      <div class="tool-video">Video Placeholder - Otter.ai Demo</div>
+      <div class="tool-content">
+        <h2>Otter.ai</h2>
+        <p>Recording and transcribing interviews with Otter.ai to ensure accurate note-taking and enable better candidate evaluation in remote hiring scenarios.</p>
+        <div class="tool-caption">Video Script: "Transcribing a virtual interview using Otter.ai for real-time notes."</div>
+        <!-- AI image prompt: "Virtual interview with AI-generated transcripts, remote hiring environment." -->
+        <div class="tool-image">AI Image Placeholder</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ETHICS -->
-<section>
+<!-- CANVA -->
+<section class="tool-section scroll-reveal">
   <div class="container">
-    <h2>Human + AI: Ethical Hiring</h2>
-    <p>
-      AI supports recruiters but does not replace human judgment. Bias awareness,
-      fairness, and responsible hiring remain essential.
-    </p>
+    <div class="tool-grid">
+      <div class="tool-video">Video Placeholder - Canva Demo</div>
+      <div class="tool-content">
+        <h2>Canva</h2>
+        <p>Designing professional recruitment materials, employer branding visuals, and job posters with Canva's intuitive tools.</p>
+        <div class="tool-caption">Video Script: "Creating a recruitment poster for a marketing manager position using Canva templates."</div>
+        <!-- AI image prompt: "HR recruiter designing recruitment posters and employer branding visuals." -->
+        <div class="tool-image">AI Image Placeholder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRAMMARLY -->
+<section class="tool-section scroll-reveal">
+  <div class="container">
+    <div class="tool-grid">
+      <div class="tool-video">Video Placeholder - Grammarly Demo</div>
+      <div class="tool-content">
+        <h2>Grammarly</h2>
+        <p>Ensuring professional communication in emails, job descriptions, and candidate correspondence with Grammarly's AI-powered writing assistance.</p>
+        <div class="tool-caption">Video Script: "Using Grammarly to polish a rejection email for better tone and clarity."</div>
+        <!-- AI image prompt: "HR professional reviewing an email with AI grammar suggestions highlighted." -->
+        <div class="tool-image">AI Image Placeholder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENT AI -->
+<section class="tool-section scroll-reveal">
+  <div class="container">
+    <div class="tool-grid">
+      <div class="tool-video">Video Placeholder - Emergent AI Demo</div>
+      <div class="tool-content">
+        <h2>Emergent AI</h2>
+        <p>Building custom HR software solutions, including resume parsers, job description generators, and recruitment analytics dashboards.</p>
+        <div class="tool-caption">Video Script: "Developing a resume screening tool using Emergent AI for automated candidate matching."</div>
+        <!-- AI image prompt: "AI platform building HR software dashboards, resume screening and recruitment analytics visible, HR professional collaborating with AI." -->
+        <div class="tool-image">AI Image Placeholder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ETHICAL AI -->
+<section class="ethics scroll-reveal">
+  <div class="container">
+    <h2>Ethical AI in Hiring</h2>
+    <p>AI enhances efficiency, but ethical hiring requires human judgment, fairness, and accountability.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact scroll-reveal">
+  <div class="container">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <div class="contact-item">
+        <strong>Name:</strong> Nashra Baig
+      </div>
+      <div class="contact-item">
+        <strong>Email:</strong> <a href="mailto:nashra@example.com">nashra@example.com</a>
+      </div>
+      <div class="contact-item">
+        <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/nashra-baig" target="_blank">linkedin.com/in/nashra-baig</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p>© Nashra Baig | AI & Talent Acquisition Portfolio</p>
+  <div class="container">
+    <p>&copy; 2024 Nashra Baig. AI-Powered Talent Acquisition Portfolio.</p>
+  </div>
 </footer>
+
+<script>
+  // Simple fade-in and scroll reveal animations
+  document.addEventListener('DOMContentLoaded', function() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const scrollElements = document.querySelectorAll('.scroll-reveal');
+
+    function checkVisibility() {
+      fadeElements.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('visible');
+        }
+      });
+
+      scrollElements.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility(); // Initial check
+  });
+</script>
 
 </body>
 </html>
